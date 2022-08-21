@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         ServiceNowForms
-// @namespace    http://tampermonkey.net/
+// @namespace    https://www.linkedin.com/in/ankush-agrawal-529033a/
 // @version      1.0
 // @description  Add quick to copy link and sysID
 // @author       Ankush Agrawal

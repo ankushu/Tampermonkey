@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         toggleFeatures
-// @namespace    http://tampermonkey.net/
+// @namespace    https://www.linkedin.com/in/ankush-agrawal-529033a/
 // @version      0.1
 // @description  Toggle features in SAFe Planning board
 // @author       Ankush Agrawal

@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         StoryPointsInBoard
-// @namespace    http://tampermonkey.net/
+// @namespace    https://www.linkedin.com/in/ankush-agrawal-529033a/
 // @version      0.1
 // @description  Add Story points in sprint board
 // @author       Ankush Agrawal
