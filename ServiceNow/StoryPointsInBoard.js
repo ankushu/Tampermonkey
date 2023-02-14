@@ -42,7 +42,7 @@
             $.get('/api/now/table/rm_story?sysparm_query=numberIN' + storyNumbers.join(',') + '&sysparm_fields=number,story_points,classification,epic.sys_id,epic.short_description,priority', function (data) { //Agile
                 data.result.forEach(e => {
                     var nodeSTRYNumber = $(storyNumberSelector + ':contains("' + e.number + '")');
-                    nodeSTRYNumber.text(e.number + ' (' + e.story_points + ')');
+                    nodeSTRYNumber.text(e.number + ' (P' + e.priority + '/' + e.story_points + 'Pt)');
                     if (e.classification === 'Defect')
                         markDefect(_getCardID(nodeSTRYNumber));
                         // nodeSTRYNumber.css('color', 'red');
@@ -55,8 +55,8 @@
                     //var nodeStryDescr = nodeSTRYNumber.parents('.vtb-card-component-wrapper').children('.sn-card-component_summary');
                     //var descr = nodeStryDescr.text();
                     //nodeStryDescr.html('<span style="color:brown;">' + getEpicPrintableText(sn_safe_feature) + '</span><br/>'+ descr);
-                    nodeSTRYNumber.parents('.vtb-card-component-meta-wrapper').children('.vtb-compact-sla-checklist').html('<a class="sn-card-component-detail open-record-button ng-binding" style="color:' + featureColor + '" role="button" href="/rm_epic.do?sys_id=' + e['epic.sys_id'] + '">' + getEpicPrintableText(safeFeature) + '(' + e['priority'] + ')' + '</a>');
-                    // nodeSTRYNumber.parents('.vtb-card-component-meta-wrapper').children('.vtb-compact-sla-checklist').html('<a class="sn-card-component-detail open-record-button ng-binding" style="color:' + featureColor + '" role="button" href="/sn_safe_feature.do?sys_id=' + e['sn_safe_feature.sys_id'] + '">' + getEpicPrintableText(safeFeature) + '(' + e['priority'] + ')' + '</a>');
+                    nodeSTRYNumber.parents('.vtb-card-component-meta-wrapper').children('.vtb-compact-sla-checklist').html('<a class="sn-card-component-detail open-record-button ng-binding" style="color:' + featureColor + '" role="button" href="/rm_epic.do?sys_id=' + e['epic.sys_id'] + '">' + getEpicPrintableText(safeFeature) + '</a>');
+                    // nodeSTRYNumber.parents('.vtb-card-component-meta-wrapper').children('.vtb-compact-sla-checklist').html('<a class="sn-card-component-detail open-record-button ng-binding" style="color:' + featureColor + '" role="button" href="/sn_safe_feature.do?sys_id=' + e['sn_safe_feature.sys_id'] + '">' + getEpicPrintableText(safeFeature) + '</a>');
                 });
                 addRefreshButton(this);
             });
