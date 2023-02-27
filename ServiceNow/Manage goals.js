@@ -25,21 +25,37 @@
       setTimeout(manageGoals, 1000);
       return;
     }
-      
-      function createOpenGoalNode(goal) {
-          let reviewGoalsQuery = '';
-          if (window.getSpPageUrl().indexOf('manage_goals') !== -1)
-            reviewGoalsQuery = '&goal_action=review'
+
+    function createOpenGoalNode(goal) {
+      let reviewGoalsQuery = "";
+      if (window.getSpPageUrl().indexOf("manage_goals") !== -1)
+        reviewGoalsQuery = "&goal_action=review";
       const nodeSpan = document.createElement("span");
       nodeSpan.setAttribute("class", "glyphicon glyphicon-new-window");
       const nodeAnchor = document.createElement("a");
-      nodeAnchor.setAttribute("href", "/esc?id=pd_goals_form&gid=" + goal.gid + reviewGoalsQuery);
+      nodeAnchor.setAttribute(
+        "href",
+        "/esc?id=pd_goals_form&gid=" + goal.gid + reviewGoalsQuery
+      );
       nodeAnchor.setAttribute("target", "_blank");
+      nodeAnchor.setAttribute("class", "userscript-custom");
       nodeAnchor.appendChild(nodeSpan);
       return nodeAnchor;
     }
+
+    $(".userscript-custom").remove();
     $(".goal-container").each(function (goalAction) {
       this.appendChild(createOpenGoalNode(angular.element(this).scope().goal));
     });
+
+    (function addRefreshManageGoals() {
+      if ($("#refreshGoals").length !== 0) return;
+
+      top.manageGoals = manageGoals;
+      const BUTTON_REFRESH =
+        '<button id="refreshGoals" class="btn btn-goal" onclick="top.manageGoals();">Refresh User Scripts</button>';
+      let existingHTML = $(".action-block").html();
+      $(".action-block").html(BUTTON_REFRESH + existingHTML);
+    })();
   }
 })();
