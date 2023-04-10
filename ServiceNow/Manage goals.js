@@ -52,10 +52,17 @@
       if ($("#refreshGoals").length !== 0) return;
 
       top.manageGoals = manageGoals;
-      const BUTTON_REFRESH =
-        '<button id="refreshGoals" class="btn btn-goal" onclick="top.manageGoals();">Refresh User Scripts</button>';
-      let existingHTML = $(".action-block").html();
-      $(".action-block").html(BUTTON_REFRESH + existingHTML);
+        let btnGoals = document.createElement('button');
+        btnGoals.setAttribute('id', 'refreshGoals');
+        btnGoals.setAttribute('class', 'btn btn-goal');
+        btnGoals.setAttribute('onclick', 'top.manageGoals();');
+        let btnText = document.createTextNode('Refresh Userscripts');
+        btnGoals.appendChild(btnText);
+    //   const BUTTON_REFRESH =
+    //     '<button id="refreshGoals" class="btn btn-goal" onclick="top.manageGoals();">Refresh Userscripts</button>';
+    //   let existingHTML = $(".action-block").html();
+    //   $(".action-block").html(existingHTML + BUTTON_REFRESH);
+        $(".action-block")[0].appendChild(btnGoals);
     })();
   }
 })();
