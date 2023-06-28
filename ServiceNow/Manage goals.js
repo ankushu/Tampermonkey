@@ -44,7 +44,7 @@
     }
 
     $(".userscript-custom").remove();
-    $(".goal-container").each(function (goalAction) {
+    $(".goal-container").each(function () {
       this.appendChild(createOpenGoalNode(angular.element(this).scope().goal));
     });
 
