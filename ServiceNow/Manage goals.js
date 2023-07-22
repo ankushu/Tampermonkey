@@ -4,8 +4,8 @@
 // @version      0.1
 // @description  Better manage goals in Surf
 // @author       ankush.agrawal
-// @match        https://surf.service-now.com/*pd_my_goals*
-// @match        https://surf.service-now.com/*pd_manage_goals*
+// @match        https://my.servicenow.com/*pd_my_goals*
+// @match        https://my.servicenow.com/*pd_manage_goals*
 // @icon         data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
 // @grant        none
 // ==/UserScript==
