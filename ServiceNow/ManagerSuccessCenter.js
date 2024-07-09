@@ -2,9 +2,9 @@
 // @name         ManagerSuccessCenter
 // @namespace    https://www.linkedin.com/in/ankush-agrawal-529033a/
 // @version      0.1
-// @description  Better manage goals in Surf
+// @description  Better manage goals, qgc in Surf
 // @author       ankush.agrawal
-// @match        https://my.servicenow.com/*msc*
+// @match        https://my.servicenow.com/*sn_mh*
 // @icon         data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
 // @grant        none
 // ==/UserScript==
@@ -15,9 +15,9 @@
   setTimeout(msc, 1000);
 
   function msc() {
-    if ($(".goal-container").length === 0) {
+    if ($(".qgc-container").length === 0) {
       if (++iter === 30) {
-        console.error("Could not find Stories in 30 iterations");
+        console.error("Could not find QGC in 30 iterations");
         return;
       }
       //retry
