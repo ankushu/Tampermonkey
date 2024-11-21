@@ -30,14 +30,19 @@
 
     function acceptStory() {
         let storyID = g_form.getUniqueValue();
-        var grStory = new GlideRecord('rm_story');
+        
+        /* var grStory = new GlideRecord('rm_story');
         grStory.addQuery('sys_id', g_form.getUniqueValue());
         grStory.query();
         if (!grStory.next())
-            return;
+            return; */
 
         closeUATTask(storyID);
-        grStory.setValue('state', '6');
-        grStory.update();
+
+        g_form.setValue('state', '6');
+        g_form.setValue('assigned_to', g_form.getValue('u_story_owner'));
+        g_form.save();
+        /* grStory.setValue('state', '6');
+        grStory.update(); */
     }
 })();
