@@ -41,11 +41,11 @@
         getSprintMetadata();
 
         // storyNumbers.forEach((e, i) => {
-        // $.get('/api/now/table/sn_safe_story?sysparm_query=numberIN' + storyNumbers.join(',') + '&sysparm_fields=number,story_points,classification,sn_safe_feature.sys_id,sn_safe_feature.short_description,priority', function (data) { //SAFe
-        $.get('/api/now/table/rm_story?sysparm_query=numberIN' + storyNumbers.join(',') + '&sysparm_fields=number,story_points,classification,epic.sys_id,epic.short_description,priority', function (data) { //Agile
+        // $.get('/api/now/table/sn_safe_story?sysparm_query=numberIN' + storyNumbers.join(',') + '&sysparm_fields=number,story_points,classification,sn_safe_feature.sys_id,sn_safe_feature.short_description,priority,order', function (data) { //SAFe
+        $.get('/api/now/table/rm_story?sysparm_query=numberIN' + storyNumbers.join(',') + '&sysparm_fields=number,story_points,classification,epic.sys_id,epic.short_description,priority,order', function (data) { //Agile
             data.result.forEach(e => {
                 var nodeSTRYNumber = $(storyNumberSelector + ':contains("' + e.number + '")');
-                nodeSTRYNumber.text(e.number + ' (P' + e.priority + '/' + e.story_points + 'Pt)');
+                nodeSTRYNumber.text(e.number + ' (P' + e.priority + '/o' + e.order + '/' + e.story_points + 'Pt)');
                 if (e.classification === 'Defect')
                     markDefect(_getCardID(nodeSTRYNumber));
                 // nodeSTRYNumber.css('color', 'red');
@@ -96,7 +96,7 @@
         var stringToColour = function (str) {
             var hash = 0;
             for (var i = 0; i < str.length; i++) {
-                hash = str.charCodeAt(i) + ((hash << 6) - hash);
+                hash = str.charCodeAt(i) + ((hash << 7) - hash);
             }
             var colour = '#';
             for (var j = 0; j < 3; j++) {
