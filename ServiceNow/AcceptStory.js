@@ -40,7 +40,8 @@
         closeUATTask(storyID);
 
         g_form.setValue('state', '6');
-        g_form.setValue('assigned_to', g_form.getValue('u_story_owner'));
+        if(g_form.getValue('u_story_owner'))
+            g_form.setValue('assigned_to', g_form.getValue('u_story_owner'));
         g_form.save();
         /* grStory.setValue('state', '6');
         grStory.update(); */

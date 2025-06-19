@@ -96,7 +96,7 @@
         var stringToColour = function (str) {
             var hash = 0;
             for (var i = 0; i < str.length; i++) {
-                hash = str.charCodeAt(i) + ((hash << 7) - hash);
+                hash = str.charCodeAt(i) + ((hash << 6) - hash);
             }
             var colour = '#';
             for (var j = 0; j < 3; j++) {
